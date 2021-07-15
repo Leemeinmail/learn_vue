@@ -8,7 +8,7 @@
             <asideApp/>
         </div>
 
-        <div class='main-content' >
+        <div class='main-content' :class='{"not-scrollable":loaderIsActive}' >
 
             <loader></loader>
 
@@ -27,7 +27,12 @@
     import loader from "@/components/loader.vue";
 
     export default {
-        components: {headerApp,asideApp,loader}
+        components: {headerApp,asideApp,loader},
+        computed:{
+            loaderIsActive(){
+                return this.$store.state.showLoader;
+            }
+        }
     }
 
 </script>
@@ -76,7 +81,10 @@ html, body{
         height: calc( 100% - 50px );
         overflow-y: auto;
         padding: 20px;
-    }
 
+        &.not-scrollable{
+            overflow-y: hidden;
+        }
+    }
 }
 </style>

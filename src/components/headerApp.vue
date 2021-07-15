@@ -1,7 +1,7 @@
 <template>
 	<header class='header' >
 		<div class='header-left' >
-			<router-link class="header-slogan" v-bind:to="sloganLink">
+			<router-link class="header-slogan" :to="toHome">
                 {{pageSlogan}}
             </router-link>
 		</div>
@@ -16,9 +16,7 @@
 <script>
 	export default{
 		data(){
-			return {
-				sloganLink: '/' // не принимал косую черту в ссылке v-bind:to
-			}
+			return {}
 		},
 		mounted(){},
 		computed:{
@@ -27,7 +25,10 @@
 			},
 			pageSlogan(){
 				return this.$store.state.headerSlogan;
-			}
+			},
+			toHome(){
+	    		return this.$store.state.homePath;
+	    	}
 		}
 	}
 </script>

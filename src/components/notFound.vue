@@ -1,54 +1,42 @@
 <template>
 	
-	<headerApp/>
-
-    <div class='main' > 
-        
-        <div class='main-menu' >
-            <asideApp/>
-        </div>
-
-        <div class='main-content content' >
-
-        	<loader :active='is_ready' ></loader> 
-
-            {{ msg }}
-
-        </div>
-    </div>
+	<div class='not-found' >
+		<div class='not-found-error-code' >
+			404
+		</div>
+		<div class='not-found-error-text' >
+			Страницы с таким адресом не существует
+		</div>
+		<router-link class="not-found-back" :to="toHome">
+            вернутся на главную
+        </router-link>
+	</div>
 
 </template>
 
 <script>
 
-	import loader from '@/components/loader.vue';
-	import headerApp from "@/components/headerApp.vue";
-    import asideApp from "@/components/asideApp.vue";
-
 	export default {
-		components: {
-           headerApp, asideApp, loader
-        },
-	    data(){
-	        return {
-	            title :'Страница не найдена',
-	            msg :'Такой страницы нет',
-	            is_ready : false
-	        }
-	    },
 	    mounted(){
 
-	        self = this;
-
-	        setTimeout(function(){
-	            self.is_ready = true;
-	        }, 1000 );
+	    	this.$store.commit('loaderOn');
+	    	this.$store.commit('changeHeaderTitle', this.title );
+	    	this.$store.commit('loaderOff',1000);
 
 	    },
+	    computed:{
+	    	toHome(){
+	    		return this.$store.state.homePath;
+	    	}
+	    }
 	}
 	
 </script>
 
 <style scoped lang="scss" >
+
+.not-found{
+
+}
 
 </style>

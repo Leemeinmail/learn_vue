@@ -37,10 +37,6 @@
 	        }
 	    },
 	    methods:{
-	    	reloadPage(){
-	    		console.log( 'reload' );
-	    		document.querySelector('.blog-list').scrollTo(0,0);
-	    	}
 	    },
 	    mounted: function(){
 
@@ -75,7 +71,6 @@
 	                    16,
 	                    this.$route.params.id,
 	                    function( r ){
-	                    	self.reloadPage();
 	                 		self.items = JSON.parse(r.request.responseText);
 	                		self.$store.commit('loaderOff',1000);                       
 	                    } 
