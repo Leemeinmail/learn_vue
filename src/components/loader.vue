@@ -13,9 +13,7 @@
 				return this.$store.state.showLoader;
 			}
 		},
-		mounted(){
-			let self = this;
-		}
+		mounted(){}
 	}
 	
 </script>

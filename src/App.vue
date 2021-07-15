@@ -10,7 +10,7 @@
 
         <div class='main-content' :class='{"not-scrollable":loaderIsActive}' >
 
-            <loader></loader>
+            <loader/>
 
             <router-view/>
 
@@ -85,6 +85,11 @@ html, body{
         &.not-scrollable{
             overflow-y: hidden;
         }
+    }
+
+    &-notfound{
+        width: 100%;
+        height: 100%;
     }
 }
 </style>

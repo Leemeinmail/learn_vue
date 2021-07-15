@@ -20,6 +20,7 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "inputmask": "^5.0.6",
     "mkdirp": "^0.5.5",
     "rimraf": "^2.7.1",
     "sass": "^1.26.5",
